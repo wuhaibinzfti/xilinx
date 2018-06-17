@@ -17,6 +17,10 @@
 #ifndef __MACH_ZYNQ_COMMON_H__
 #define __MACH_ZYNQ_COMMON_H__
 
+/* Begin add by wuhaibin, 20180617 */
+void zynq_secondary_startup(void);
+/* End add by wuhaibin, 20180617 */
+
 extern int zynq_slcr_init(void);
 extern int zynq_early_slcr_init(void);
 extern void zynq_slcr_cpu_stop(int cpu);

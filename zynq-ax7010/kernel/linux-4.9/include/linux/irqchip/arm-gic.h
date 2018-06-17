@@ -103,6 +103,10 @@
 struct device_node;
 struct gic_chip_data;
 
+/* Begin add by wuhaibin, 20180617 */
+extern struct irq_chip gic_arch_extn;
+/* End add by wuhaibin, 20180617 */
+
 void gic_cascade_irq(unsigned int gic_nr, unsigned int irq);
 int gic_cpu_if_down(unsigned int gic_nr);
 void gic_raise_softirq(const struct cpumask *mask, unsigned int irq);

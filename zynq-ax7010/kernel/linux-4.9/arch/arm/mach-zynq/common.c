@@ -149,6 +149,10 @@ out:
 
 static void __init zynq_timer_init(void)
 {
+    /* Begin add by wuhaibin, 20180617 */
+	zynq_early_slcr_init();
+	/* End add by wuhaibin, 20180617 */
+
 	zynq_clock_init();
 	of_clk_init(NULL);
 	clocksource_probe();
@@ -183,8 +187,16 @@ static void __init zynq_map_io(void)
 
 static void __init zynq_irq_init(void)
 {
+    /* Begin add by wuhaibin, 20180617 */
+    gic_arch_extn.flags = IRQCHIP_SKIP_SET_WAKE | IRQCHIP_MASK_ON_SUSPEND;
+	/* End add by wuhaibin, 20180617 */
+	
+    /* Begin delete by wuhaibin, 20180617 */
+#if 0
 	zynq_early_efuse_init();
 	zynq_early_slcr_init();
+#endif
+	/* End delete by wuhaibin, 20180617 */
 	irqchip_init();
 }
 
