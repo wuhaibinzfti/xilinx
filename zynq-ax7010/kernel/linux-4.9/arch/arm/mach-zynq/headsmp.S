@@ -22,3 +22,10 @@ zynq_secondary_trampoline_jump:
 .globl zynq_secondary_trampoline_end
 zynq_secondary_trampoline_end:
 ENDPROC(zynq_secondary_trampoline)
+
+/* Begin add by wuhaibin, 20180617 */
+ENTRY(zynq_secondary_startup)
+	bl	v7_invalidate_l1
+	b	secondary_startup
+ENDPROC(zynq_secondary_startup)
+/* End add by wuhaibin, 20180617 */
